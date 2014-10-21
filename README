@@ -1,0 +1,18 @@
+To install alembic and the warehouse
+python package that holds the migrations please 
+run the following in the current directory:
+
+$ sudo pip install -e . 
+
+To get the sql for the initial revision:
+$ alembic upgrade 1  --sql
+
+
+To upgrade among two revisions, say revisions 19 and 20
+$ alembic upgrade 19:20 --sql > migration.sql
+
+To downgrade from revision 20 to revision 19
+$ alembic downgrade 20:19 --sql > migration.sql
+
+To run all revisions up to revision 19 (will run rev 1, 2...19)
+$ alembic upgrade 19 --sql
